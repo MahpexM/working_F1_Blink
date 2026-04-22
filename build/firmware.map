@@ -1,0 +1,411 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x20000000         0x00005000         xrw
+FLASH            0x08000000         0x00010000         xr
+FLASHB1          0x00000000         0x00000000         xr
+EXTMEMB0         0x00000000         0x00000000         xr
+EXTMEMB1         0x00000000         0x00000000         xr
+EXTMEMB2         0x00000000         0x00000000         xr
+EXTMEMB3         0x00000000         0x00000000         xr
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD build/crt.o
+LOAD build/main.o
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a
+END GROUP
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a
+END GROUP
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc_nano.a
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a
+END GROUP
+                0x00000400                        __Stack_Size = 0x400
+                [!provide]                        PROVIDE (_Stack_Size = __Stack_Size)
+                0x20004c00                        __Stack_Init = (_estack - __Stack_Size)
+                [!provide]                        PROVIDE (_Stack_Init = __Stack_Init)
+                0x00000100                        _Minimum_Stack_Size = 0x100
+                [!provide]                        PROVIDE (Undefined_Handler = 0x0)
+                [!provide]                        PROVIDE (SWI_Handler = 0x0)
+                [!provide]                        PROVIDE (IRQ_Handler = 0x0)
+                [!provide]                        PROVIDE (Prefetch_Handler = 0x0)
+                [!provide]                        PROVIDE (Abort_Handler = 0x0)
+                [!provide]                        PROVIDE (FIQ_Handler = 0x0)
+                [!provide]                        PROVIDE (NMIException = 0x0)
+                [!provide]                        PROVIDE (HardFaultException = 0x0)
+                [!provide]                        PROVIDE (MemManageException = 0x0)
+                [!provide]                        PROVIDE (BusFaultException = 0x0)
+                [!provide]                        PROVIDE (UsageFaultException = 0x0)
+                [!provide]                        PROVIDE (SVCHandler = 0x0)
+                [!provide]                        PROVIDE (DebugMonitor = 0x0)
+                [!provide]                        PROVIDE (PendSVC = 0x0)
+                [!provide]                        PROVIDE (SysTickHandler = 0x0)
+                [!provide]                        PROVIDE (WWDG_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (PVD_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (TAMPER_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (RTC_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (FLASH_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (RCC_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (EXTI0_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (EXTI1_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (EXTI2_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (EXTI3_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (EXTI4_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (DMAChannel1_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (DMAChannel2_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (DMAChannel3_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (DMAChannel4_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (DMAChannel5_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (DMAChannel6_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (DMAChannel7_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (ADC_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (USB_HP_CAN_TX_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (USB_LP_CAN_RX0_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (CAN_RX1_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (CAN_SCE_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (EXTI9_5_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (TIM1_BRK_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (TIM1_UP_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (TIM1_TRG_COM_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (TIM1_CC_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (TIM2_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (TIM3_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (TIM4_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (I2C1_EV_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (I2C1_ER_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (I2C2_EV_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (I2C2_ER_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (SPI1_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (SPI2_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (USART1_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (USART2_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (USART3_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (EXTI15_10_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (RTCAlarm_IRQHandler = 0x0)
+                [!provide]                        PROVIDE (USBWakeUp_IRQHandler = 0x0)
+                0x42000000                        PERIPH_BB_BASE = 0x42000000
+                0x22000000                        SRAM_BB_BASE = 0x22000000
+                0x20000000                        SRAM_BASE = 0x20000000
+                0x40000000                        PERIPH_BASE = 0x40000000
+                [!provide]                        PROVIDE (FLASH_BASE = 0x40022000)
+                [!provide]                        PROVIDE (OB_BASE = 0x1ffff800)
+                0x40000000                        APB1PERIPH_BASE = PERIPH_BASE
+                0x40010000                        APB2PERIPH_BASE = (PERIPH_BASE + 0x10000)
+                0x40020000                        AHBPERIPH_BASE = (PERIPH_BASE + 0x20000)
+                [!provide]                        PROVIDE (TIM2 = (APB1PERIPH_BASE + 0x0))
+                [!provide]                        PROVIDE (TIM3 = (APB1PERIPH_BASE + 0x400))
+                [!provide]                        PROVIDE (TIM4 = (APB1PERIPH_BASE + 0x800))
+                [!provide]                        PROVIDE (RTC = (APB1PERIPH_BASE + 0x2800))
+                [!provide]                        PROVIDE (WWDG = (APB1PERIPH_BASE + 0x2c00))
+                [!provide]                        PROVIDE (IWDG = (APB1PERIPH_BASE + 0x3000))
+                [!provide]                        PROVIDE (SPI2 = (APB1PERIPH_BASE + 0x3800))
+                [!provide]                        PROVIDE (USART2 = (APB1PERIPH_BASE + 0x4400))
+                [!provide]                        PROVIDE (USART3 = (APB1PERIPH_BASE + 0x4800))
+                [!provide]                        PROVIDE (I2C1 = (APB1PERIPH_BASE + 0x5400))
+                [!provide]                        PROVIDE (I2C2 = (APB1PERIPH_BASE + 0x5800))
+                [!provide]                        PROVIDE (CAN = (APB1PERIPH_BASE + 0x6400))
+                [!provide]                        PROVIDE (BKP = (APB1PERIPH_BASE + 0x6c00))
+                [!provide]                        PROVIDE (PWR = (APB1PERIPH_BASE + 0x7000))
+                [!provide]                        PROVIDE (AFIO = (APB2PERIPH_BASE + 0x0))
+                [!provide]                        PROVIDE (EXTI = (APB2PERIPH_BASE + 0x400))
+                [!provide]                        PROVIDE (GPIOA = (APB2PERIPH_BASE + 0x800))
+                [!provide]                        PROVIDE (GPIOB = (APB2PERIPH_BASE + 0xc00))
+                [!provide]                        PROVIDE (GPIOC = (APB2PERIPH_BASE + 0x1000))
+                [!provide]                        PROVIDE (GPIOD = (APB2PERIPH_BASE + 0x1400))
+                [!provide]                        PROVIDE (GPIOE = (APB2PERIPH_BASE + 0x1800))
+                [!provide]                        PROVIDE (ADC1 = (APB2PERIPH_BASE + 0x2400))
+                [!provide]                        PROVIDE (ADC2 = (APB2PERIPH_BASE + 0x2800))
+                [!provide]                        PROVIDE (TIM1 = (APB2PERIPH_BASE + 0x2c00))
+                [!provide]                        PROVIDE (SPI1 = (APB2PERIPH_BASE + 0x3000))
+                [!provide]                        PROVIDE (USART1 = (APB2PERIPH_BASE + 0x3800))
+                [!provide]                        PROVIDE (DMA = (AHBPERIPH_BASE + 0x0))
+                [!provide]                        PROVIDE (DMA_Channel1 = (AHBPERIPH_BASE + 0x8))
+                [!provide]                        PROVIDE (DMA_Channel2 = (AHBPERIPH_BASE + 0x1c))
+                [!provide]                        PROVIDE (DMA_Channel3 = (AHBPERIPH_BASE + 0x30))
+                [!provide]                        PROVIDE (DMA_Channel4 = (AHBPERIPH_BASE + 0x44))
+                [!provide]                        PROVIDE (DMA_Channel5 = (AHBPERIPH_BASE + 0x58))
+                [!provide]                        PROVIDE (DMA_Channel6 = (AHBPERIPH_BASE + 0x6c))
+                [!provide]                        PROVIDE (DMA_Channel7 = (AHBPERIPH_BASE + 0x80))
+                [!provide]                        PROVIDE (RCC = (AHBPERIPH_BASE + 0x1000))
+                0xe000e000                        SCS_BASE = 0xe000e000
+                [!provide]                        PROVIDE (SysTick = (SCS_BASE + 0x10))
+                [!provide]                        PROVIDE (NVIC = (SCS_BASE + 0x100))
+                [!provide]                        PROVIDE (SCB = (SCS_BASE + 0xd00))
+                0x20005000                        _estack = 0x20005000
+
+.isr_vector     0x08000000      0x10c
+                0x08000000                        . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x10c build/crt.o
+                0x08000000                g_pfnVectors
+                0x0800010c                        . = ALIGN (0x4)
+
+.flashtext      0x0800010c        0x0
+                0x0800010c                        . = ALIGN (0x4)
+ *(.flashtext)
+                0x0800010c                        . = ALIGN (0x4)
+
+.text           0x0800010c       0xac
+                0x0800010c                        . = ALIGN (0x4)
+ *(.text)
+ .text          0x0800010c       0x14 build/crt.o
+ .text          0x08000120       0x14 build/main.o
+                0x08000120                SystemInit
+                0x08000122                sleep
+ *(.text.*)
+ .text.Reset_Handler
+                0x08000134       0x44 build/crt.o
+                0x08000134                Reset_Handler
+ .text.Default_Handler
+                0x08000178        0x2 build/crt.o
+                0x08000178                EXTI2_IRQHandler
+                0x08000178                DebugMon_Handler
+                0x08000178                TIM1_CC_IRQHandler
+                0x08000178                HardFault_Handler
+                0x08000178                SysTick_Handler
+                0x08000178                PVD_IRQHandler
+                0x08000178                PendSV_Handler
+                0x08000178                NMI_Handler
+                0x08000178                EXTI3_IRQHandler
+                0x08000178                EXTI0_IRQHandler
+                0x08000178                I2C2_EV_IRQHandler
+                0x08000178                UsageFault_Handler
+                0x08000178                ADC1_2_IRQHandler
+                0x08000178                SPI1_IRQHandler
+                0x08000178                TAMPER_IRQHandler
+                0x08000178                DMA1_Channel4_IRQHandler
+                0x08000178                USART3_IRQHandler
+                0x08000178                RTC_IRQHandler
+                0x08000178                DMA1_Channel7_IRQHandler
+                0x08000178                CAN1_RX1_IRQHandler
+                0x08000178                TIM4_IRQHandler
+                0x08000178                I2C1_EV_IRQHandler
+                0x08000178                DMA1_Channel6_IRQHandler
+                0x08000178                TIM3_IRQHandler
+                0x08000178                RCC_IRQHandler
+                0x08000178                TIM1_TRG_COM_IRQHandler
+                0x08000178                DMA1_Channel1_IRQHandler
+                0x08000178                Default_Handler
+                0x08000178                EXTI15_10_IRQHandler
+                0x08000178                EXTI9_5_IRQHandler
+                0x08000178                SPI2_IRQHandler
+                0x08000178                MemManage_Handler
+                0x08000178                SVC_Handler
+                0x08000178                DMA1_Channel5_IRQHandler
+                0x08000178                EXTI4_IRQHandler
+                0x08000178                USB_LP_CAN1_RX0_IRQHandler
+                0x08000178                USB_HP_CAN1_TX_IRQHandler
+                0x08000178                DMA1_Channel3_IRQHandler
+                0x08000178                TIM1_UP_IRQHandler
+                0x08000178                WWDG_IRQHandler
+                0x08000178                TIM2_IRQHandler
+                0x08000178                TIM1_BRK_IRQHandler
+                0x08000178                EXTI1_IRQHandler
+                0x08000178                RTCAlarm_IRQHandler
+                0x08000178                USART2_IRQHandler
+                0x08000178                I2C2_ER_IRQHandler
+                0x08000178                DMA1_Channel2_IRQHandler
+                0x08000178                CAN1_SCE_IRQHandler
+                0x08000178                FLASH_IRQHandler
+                0x08000178                BusFault_Handler
+                0x08000178                USART1_IRQHandler
+                0x08000178                I2C1_ER_IRQHandler
+                0x08000178                USBWakeUp_IRQHandler
+ *fill*         0x0800017a        0x2 
+ .text.startup  0x0800017c       0x3c build/main.o
+                0x0800017c                main
+ *(.rodata)
+ *(.rodata*)
+ *(.glue_7)
+ .glue_7        0x080001b8        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x080001b8        0x0 linker stubs
+                0x080001b8                        . = ALIGN (0x4)
+                0x080001b8                        _etext = .
+                0x080001b8                        _sidata = _etext
+
+.vfp11_veneer   0x080001b8        0x0
+ .vfp11_veneer  0x080001b8        0x0 linker stubs
+
+.v4_bx          0x080001b8        0x0
+ .v4_bx         0x080001b8        0x0 linker stubs
+
+.iplt           0x080001b8        0x0
+ .iplt          0x080001b8        0x0 build/crt.o
+
+.rel.dyn        0x080001b8        0x0
+ .rel.iplt      0x080001b8        0x0 build/crt.o
+
+.data           0x20000000        0x0 load address 0x080001b8
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sdata = .
+ *(.data)
+ .data          0x20000000        0x0 build/crt.o
+ .data          0x20000000        0x0 build/main.o
+ *(.data.*)
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _edata = .
+
+.igot.plt       0x20000000        0x0 load address 0x080001b8
+ .igot.plt      0x20000000        0x0 build/crt.o
+
+.bss            0x20000000        0x0 load address 0x080001b8
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sbss = .
+ *(.bss)
+ .bss           0x20000000        0x0 build/crt.o
+ .bss           0x20000000        0x0 build/main.o
+ *(COMMON)
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _ebss = .
+                [!provide]                        PROVIDE (end = _ebss)
+                [!provide]                        PROVIDE (_end = _ebss)
+
+._usrstack      0x20000000      0x100 load address 0x080001b8
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _susrstack = .
+                0x20000100                        . = (. + _Minimum_Stack_Size)
+ *fill*         0x20000000      0x100 
+                0x20000100                        . = ALIGN (0x4)
+                0x20000100                        _eusrstack = .
+
+.b1text
+ *(.b1text)
+ *(.b1rodata)
+ *(.b1rodata*)
+
+.eb0text
+ *(.eb0text)
+ *(.eb0rodata)
+ *(.eb0rodata*)
+
+.eb1text
+ *(.eb1text)
+ *(.eb1rodata)
+ *(.eb1rodata*)
+
+.eb2text
+ *(.eb2text)
+ *(.eb2rodata)
+ *(.eb2rodata*)
+
+.eb3text
+ *(.eb3text)
+ *(.eb3rodata)
+ *(.eb3rodata*)
+                0x20000100                        __exidx_start = .
+                0x20000100                        __exidx_end = .
+
+/DISCARD/
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x26
+ *(.comment)
+ .comment       0x00000000       0x26 build/main.o
+                                 0x27 (size before relaxing)
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x21 build/crt.o
+ .ARM.attributes
+                0x00000021       0x2d build/main.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x28
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x28 build/main.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000      0x24e
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x24e build/main.o
+
+.debug_abbrev   0x00000000      0x103
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x103 build/main.o
+
+.debug_line     0x00000000      0x10a
+ *(.debug_line)
+ .debug_line    0x00000000      0x10a build/main.o
+
+.debug_frame    0x00000000       0x50
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x50 build/main.o
+
+.debug_str      0x00000000      0x184
+ *(.debug_str)
+ .debug_str     0x00000000      0x184 build/main.o
+                                0x1bd (size before relaxing)
+
+.debug_loc      0x00000000       0x4c
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x4c build/main.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+OUTPUT(res/firmware.elf elf32-littlearm)
+LOAD linker stubs
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libm.a
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a
+
+.debug_ranges   0x00000000       0x18
+ .debug_ranges  0x00000000       0x18 build/main.o

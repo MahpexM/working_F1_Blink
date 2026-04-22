@@ -6,7 +6,7 @@
 void SystemInit(void) {}
 
 void sleep(uint32_t x){
-    // Ключевое слово volatile не позволяет компилятору оптимизировать код до выкидывания пустого цикла
+    // Ключевое слово volatile не позволяет компилятору выкинуть пустой цикл
     volatile uint32_t i = x;
     while(i--)
         ;
@@ -25,7 +25,7 @@ int main(void)
     while(1)
     {
         GPIOC->ODR ^= GPIO_ODR_ODR13;
-        sleep(577067);
+        sleep(577067); // Экспериментальная подгонка под 1 с
     }
 
 //    return 0;
